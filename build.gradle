@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'io.qameta.allure' version '2.11.2'
+}
+
+group = 'com.saucedemo'
+version = '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Selenium
+    implementation 'org.seleniumhq.selenium:selenium-java:4.15.0'
+
+    // TestNG
+    implementation 'org.testng:testng:7.8.0'
+
+    // Cucumber
+    implementation 'io.cucumber:cucumber-java:7.14.0'
+    implementation 'io.cucumber:cucumber-testng:7.14.0'
+
+    // Allure
+    implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
+    implementation 'io.qameta.allure:allure-testng:2.24.0'
+}
+
+allure {
+
+}
+
+test {
+    useTestNG()
+    systemProperties = System.getProperties().collectEntries { key, value ->
+        [key.toString(), value.toString()]
+    }
+
+    testLogging {
+        events "passed", "skipped", "failed"
+        exceptionFormat "full"
+    }
+}
