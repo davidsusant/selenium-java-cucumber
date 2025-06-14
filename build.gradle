@@ -24,6 +24,9 @@ dependencies {
     // Allure
     implementation 'io.qameta.allure:allure-cucumber7-jvm:2.24.0'
     implementation 'io.qameta.allure:allure-testng:2.24.0'
+
+    // Web Driver Manager
+    implementation 'io.github.bonigarcia:webdrivermanager:5.5.3'
 }
 
 allure {
