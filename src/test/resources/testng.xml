@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="SauceDemoTestSuite" verbose="1" parallel="methods" thread-count="3">
+
+    <listeners>
+        <listener class-name="io.qameta.allure.testng.AllureTestNg"/>
+    </listeners>
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="environment" value="staging"/>
+
+    <test name="SmokeTests" preserve-order="true">
+        <classes>
+            <class name="com.saucedemo.runners.TestRunner">
+                <methods>
+                    <include name="scenarios"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+    <test name="RegressionTests" preserve-order="true">
+        <classes>
+            <class name="com.saucedemo.runners.TestRunner">
+                <methods>
+                    <include name="scenarios"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+
+</suite>

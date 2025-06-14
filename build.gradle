@@ -44,3 +44,12 @@ test {
         exceptionFormat "full"
     }
 }
+
+tasks.register('runTests', Test) {
+    useTestNG {
+        suites 'src/test/resources/testng.xml'
+    }
+    systemProperty "allure.results.directory", "build/allure-results"
+
+    finalizedBy 'allureReport'
+}
